@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <app-header/>
-    <router-view class="main-content"/>
-    <app-tab-bar/>
+    <app-header v-if="$store.state.app.showHeader"/>
+    <router-view :class="$store.state.app.showHeader?'main-content':'main-content-without-header'"/>
+    <app-tab-bar v-if="$store.state.app.showTabbar"/>
   </div>
 </template>
 
@@ -38,6 +38,11 @@ export default {
     .main-content {
       padding-top: 40px;
       height: calc(100% - 40px);
+      width: 100%;
+    }
+
+    .main-content-without-header {
+      height: 100%;
       width: 100%;
     }
   }

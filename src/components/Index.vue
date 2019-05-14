@@ -10,7 +10,7 @@
       <verification v-if="selected === 'verification'"/>
     </mt-tab-container-item>
     <mt-tab-container-item id="my">
-      <my/>
+      <my v-if="selected === 'my'"/>
     </mt-tab-container-item>
   </mt-tab-container>
 </template>
@@ -30,6 +30,8 @@ export default {
     My
   },
   created () {
+    this.$store.dispatch('app/showTabbar')
+    this.$store.dispatch('app/showHeader')
   },
   data () {
     return {}

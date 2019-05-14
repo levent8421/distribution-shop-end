@@ -2,7 +2,9 @@ const app = {
   namespaced: true,
   state: {
     tabbar: 'home',
-    title: '首页'
+    title: '首页',
+    showTabbar: true,
+    showHeader: true
   },
   mutations: {
     setTab (state, tab) {
@@ -17,6 +19,12 @@ const app = {
     },
     setTitle (state, title) {
       state.title = title
+    },
+    setShowHeader (state, show) {
+      state.showHeader = show
+    },
+    setShowTabbar (state, show) {
+      state.showTabbar = show
     }
   },
   actions: {
@@ -25,6 +33,18 @@ const app = {
     },
     setTtile ({commit}, title) {
       commit('setTitle', title)
+    },
+    hideTabbar ({commit}) {
+      commit('setShowTabbar', false)
+    },
+    showTabbar ({commit}) {
+      commit('setShowTabbar', true)
+    },
+    hideHeader ({commit}) {
+      commit('setShowHeader', false)
+    },
+    showHeader ({commit}) {
+      commit('setShowHeader', true)
     }
   },
   getters: {}

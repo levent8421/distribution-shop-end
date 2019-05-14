@@ -1,6 +1,6 @@
 <template>
   <div class="order">
-    <img src="../../assets/icon_info.png" alt="">
+    <img src="../../assets/icon_info.png" alt="" @click="toLogin">
     <p>敬请期待</p>
   </div>
 </template>
@@ -9,6 +9,11 @@
 export default {
   name: 'Index',
   created () {
+  },
+  methods: {
+    toLogin () {
+      this.$router.replace({name: 'Login'})
+    }
   }
 }
 </script>

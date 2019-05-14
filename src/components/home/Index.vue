@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="chart-wrapper">
-      图表区域
+      <canvas id="home-charts" width="500" height="280"></canvas>
     </div>
     <div class="data-list">
       <p class="title-text">统计数据</p>
@@ -11,6 +11,9 @@
 </template>
 
 <script>
+import echarts from 'echarts'
+import homeCharts from './homeCharts'
+
 export default {
   name: 'Index',
   data () {
@@ -36,6 +39,11 @@ export default {
     }
   },
   created () {
+  },
+  mounted () {
+    const ele = document.getElementById('home-charts')
+    const charts = echarts.init(ele)
+    homeCharts.initCharts(charts)
   }
 }
 </script>
@@ -43,11 +51,14 @@ export default {
 <style scoped lang="less">
   .home {
     .chart-wrapper {
-      width: 80%;
       margin: 20px auto;
-      background-color: white;
       height: 200px;
       text-align: center;
+
+      #home-charts {
+        width: 100%;
+        height: 100%;
+      }
     }
 
     .data-list {

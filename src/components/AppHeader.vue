@@ -1,6 +1,6 @@
 <template>
   <mt-header fixed :title="title">
-    <mt-button slot="left" icon="back">返回</mt-button>
+    <mt-button slot="left" icon="back" @click="back">返回</mt-button>
     <mt-button slot="right" icon="more"></mt-button>
   </mt-header>
 </template>
@@ -16,6 +16,11 @@ export default {
       set (v) {
         this.$store.dispatch('app/setTitle', v)
       }
+    }
+  },
+  methods: {
+    back () {
+      this.$router.back()
     }
   }
 }
